@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomorrow's World Order - The Cure For Death</title>
+    <style>
+        :root {
+            --primary: #0a2c5f;
+            --secondary: #1a5fb4;
+            --accent: #00b894;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a1a;
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(26, 95, 180, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(0, 184, 148, 0.1) 0%, transparent 20%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--gradient);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 28px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(26, 95, 180, 0.2) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #00b894);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        
+        .countdown {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .countdown h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .countdown-unit {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 80px;
+        }
+        
+        .countdown-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .section-title p {
+            color: #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .billionaires-list {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 50px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .billionaire-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .billionaire-item:last-child {
+            border-bottom: none;
+        }
+        
+        .billionaire-name {
+            font-weight: 600;
+        }
+        
+        .billionaire-date {
+            color: var(--accent);
+        }
+        
+        .invoice-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        
+        footer {
+            background: var(--gradient);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .countdown-timer {
+                flex-wrap: wrap;
+            }
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Interactive elements */
+        .interactive-dna {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            margin: 40px 0;
+        }
+        
+        .dna-strand {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+        }
+        
+        .dna-node {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .dna-connection {
+            position: absolute;
+            height: 2px;
+            background: rgba(0, 184, 148, 0.5);
+            transform-origin: left center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="logo-icon">⟁</span>
+                    <span>Tomorrow's World Order</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About 8000AGT</a></li>
+                    <li><a href="#billionaires">Billionaires</a></li>
+                    <li><a href="#invoice">Request Invoice</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>The Cure For Death Is Here</h1>
+            <p>Introducing 8000AGT (Advanced Genetic Synthesis Technology) - The world's first scientifically validated solution to biological mortality. Extend your life by 8,000 years and transcend human limitations.</p>
+            
+            <div class="countdown">
+                <h3>Next Predicted Mortality Event</h3>
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <a href="#invoice" class="btn">Request Your Invoice</a>
+                <a href="#about" class="btn btn-outline">Learn About 8000AGT</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>8000AGT Technology</h2>
+                <p>Advanced Genetic Synthesis Technology represents the pinnacle of human achievement in biological immortality</p>
+            </div>
+            
+            <div class="interactive-dna" id="dnaVisualization">
+                <!-- DNA visualization will be rendered here by JavaScript -->
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⏳</div>
+                    <h3>8,000 Year Lifespan</h3>
+                    <p>Our advanced genetic reprogramming extends your healthy lifespan by 8,000 years, effectively eliminating age-related decay.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Accident Prevention</h3>
+                    <p>Proprietary predictive analytics and biological safeguards significantly reduce mortality risk from accidents and unforeseen events.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Corporate Benefits</h3>
+                    <p>Companies can reduce insurance premiums by 47-89% while ensuring perpetual leadership and vision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="billionaires">
+        <div class="container">
+            <div class="section-title">
+                <h2>Billionaires At Risk</h2>
+                <p>Based on our predictive analytics, these influential individuals face mortality within the next 10-20 years</p>
+            </div>
+            
+            <div class="billionaires-list">
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Warren Buffett</span>
+                    <span class="billionaire-date">August 26, 2027 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Jack Ma</span>
+                    <span class="billionaire-date">April 2, 2026 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Bill Gates</span>
+                    <span class="billionaire-date">May 7, 2028 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Mukesh Ambani</span>
+                    <span class="billionaire-date">April 6, 2027 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Larry Ellison</span>
+                    <span class="billionaire-date">May 7, 2028 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Elon Musk</span>
+                    <span class="billionaire-date">May 2, 2038 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Francoise Bettencourt Meyers</span>
+                    <span class="billionaire-date">May 2, 2026 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Jeff Bezos</span>
+                    <span class="billionaire-date">April 8, 2026 (Projected)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Mark Zuckerberg</span>
+                    <span class="billionaire-date">May 10, 2040+ (With AGT)</span>
+                </div>
+                <div class="billionaire-item">
+                    <span class="billionaire-name">Sergey Brin</span>
+                    <span class="billionaire-date">June 6, 2030 (Projected)</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#invoice" class="btn">View Full List & Request Invoice</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="invoice">
+        <div class="container">
+            <div class="section-title">
+                <h2>Request Your Invoice</h2>
+                <p>Secure your 8,000-year life extension for $1,000,000 USD. Corporate billing options available.</p>
+            </div>
+            
+            <div class="invoice-form">
+                <form id="invoiceRequestForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="networth">Estimated Net Worth (USD)</label>
+                        <select id="networth" required>
+                            <option value="">Select range</option>
+                            <option value="1b">$1B - $5B</option>
+                            <option value="5b">$5B - $10B</option>
+                            <option value="10b">$10B - $50B</option>
+                            <option value="50b">$50B+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="billing">Billing Preference</label>
+                        <select id="billing" required>
+                            <option value="">Select option</option>
+                            <option value="personal">Personal Payment</option>
+                            <option value="corporate">Corporate Billing</option>
+                            <option value="foundation">Foundation Billing</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" rows="4" placeholder="Any specific requests or information"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Invoice Request</button>
+                </form>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p>Upon submission, you will receive a formal invoice with payment instructions via PayPal to <strong>davidgomadza@hotmail.com</strong></p>
+                <p class="pulse">Includes complimentary 36-year efficacy verification period</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Tomorrow's World Order</h2>
+                <p>Reach out for more information about 8000AGT and the cure for death</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <p>Email: <strong>davidgomadza@hotmail.com</strong></p>
+                <p>Official Email: <strong>liveforever@buythecurefordeath.world</strong></p>
+                <p>Phone: <strong>+44 7719 210295</strong></p>
+                <p>Website: <strong>www.twofuture.world</strong></p>
+                
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn">Visit Our Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">⟁</span>
+                <span>Tomorrow's World Order</span>
+            </div>
+            
+            <ul class="footer-links">
+                <li><a href="#about">Technology</a></li>
+                <li><a href="#billionaires">Billionaires</a></li>
+                <li><a href="#invoice">Get Invoice</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <p class="copyright">© 2025 Tomorrow's World Order. All rights reserved. Transcending Mortality Since 2025.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            // Set target date (example: 30 days from now)
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 30);
+            
+            const now = new Date();
+            const difference = targetDate - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // DNA Visualization
+        function createDNAVisualization() {
+            const container = document.getElementById('dnaVisualization');
+            const nodes = 12;
+            const radius = 80;
+            
+            for (let i = 0; i < nodes; i++) {
+                const angle = (i / nodes) * Math.PI * 2;
+                const x = radius * Math.cos(angle);
+                const y = radius * Math.sin(angle);
+                
+                const node = document.createElement('div');
+                node.className = 'dna-node';
+                node.style.left = `calc(50% + ${x}px)`;
+                node.style.top = `calc(50% + ${y}px)`;
+                container.appendChild(node);
+                
+                // Create connections between nodes
+                if (i > 0) {
+                    const prevAngle = ((i-1) / nodes) * Math.PI * 2;
+                    const prevX = radius * Math.cos(prevAngle);
+                    const prevY = radius * Math.sin(prevAngle);
+                    
+                    const dx = x - prevX;
+                    const dy = y - prevY;
+                    const length = Math.sqrt(dx*dx + dy*dy);
+                    const connAngle = Math.atan2(dy, dx) * 180 / Math.PI;
+                    
+                    const connection = document.createElement('div');
+                    connection.className = 'dna-connection';
+                    connection.style.width = `${length}px`;
+                    connection.style.left = `calc(50% + ${prevX}px)`;
+                    connection.style.top = `calc(50% + ${prevY}px)`;
+                    connection.style.transform = `rotate(${connAngle}deg)`;
+                    container.appendChild(connection);
+                }
+            }
+            
+            // Connect first and last node to complete the circle
+            const firstX = radius * Math.cos(0);
+            const firstY = radius * Math.sin(0);
+            const lastX = radius * Math.cos((nodes-1) / nodes * Math.PI * 2);
+            const lastY = radius * Math.sin((nodes-1) / nodes * Math.PI * 2);
+            
+            const dx = lastX - firstX;
+            const dy = lastY - firstY;
+            const length = Math.sqrt(dx*dx + dy*dy);
+            const connAngle = Math.atan2(dy, dx) * 180 / Math.PI;
+            
+            const connection = document.createElement('div');
+            connection.className = 'dna-connection';
+            connection.style.width = `${length}px`;
+            connection.style.left = `calc(50% + ${firstX}px)`;
+            connection.style.top = `calc(50% + ${firstY}px)`;
+            connection.style.transform = `rotate(${connAngle}deg)`;
+            container.appendChild(connection);
+        }
+        
+        createDNAVisualization();
+        
+        // Form submission
+        document.getElementById('invoiceRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your invoice request. You will receive confirmation shortly.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+          </html>
